@@ -16,7 +16,8 @@ class MainApp extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {},
-                child: const Text('Hello JUGA Bengkel Bulaksumur!'),
+                child: const Text(
+                    'Hello JUGA Bengkel BulaksumurBulaksumurBulaksumur!'),
               ),
             ],
           ),
