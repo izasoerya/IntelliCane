@@ -19,10 +19,11 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
 
   @override
   Widget build(BuildContext context) {
-    return const GoogleMap(
-        initialCameraPosition: CameraPosition(
-      target: currentLocation,
-      zoom: 11.0,
-    ));
+    return GoogleMap(
+        onMapCreated: _onMapCreated,
+        initialCameraPosition: const CameraPosition(
+          target: currentLocation,
+          zoom: 11.0,
+        ));
   }
 }
