@@ -12,18 +12,55 @@ class GoogleMapsAPI extends StatefulWidget {
 class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
   final Completer<GoogleMapController> _controller = Completer();
 
-  static const LatLng currentLocation = LatLng(45.521563, -122.677433);
+  LatLng currentLocation = const LatLng(-7.797068, 110.370529);
+
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
+  void updateLocation() {
+    // Simulate a slight change in location (e.g., moving a few meters)
+    setState(() {
+      currentLocation = LatLng(
+        currentLocation.latitude + 0.0001,
+        currentLocation.longitude + 0.0001,
+      );
+    });
+
+    // Animate the camera to the updated location
+    _controller.future.then((controller) {
+      controller.animateCamera(
+        CameraUpdate.newLatLng(currentLocation),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: const CameraPosition(
-          target: currentLocation,
-          zoom: 11.0,
-        ));
+    return Column(
+      children: [
+        Expanded(
+          child: GoogleMap(
+            onMapCreated: _onMapCreated,
+            zoomControlsEnabled: false,
+            initialCameraPosition: CameraPosition(
+              target: currentLocation,
+              zoom: 17.0,
+            ),
+            markers: {
+              Marker(
+                markerId: const MarkerId("currentLocation"),
+                position:
+                    LatLng(currentLocation.latitude, currentLocation.longitude),
+              )
+            },
+          ),
+        ),
+        ElevatedButton(
+          onPressed: updateLocation,
+          child: const Text('Update Location'),
+        ),
+      ],
+    );
   }
 }

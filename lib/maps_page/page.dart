@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'maps_api.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainPageMaps extends StatelessWidget {
   const MainPageMaps({key}) : super(key: key);
@@ -9,15 +10,46 @@ class MainPageMaps extends StatelessWidget {
     return MaterialApp(
       title: 'Maps Sample App',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Maps Sample App',
-            style: TextStyle(color: Colors.white),
+          appBar: AppBar(
+              title: const Text(
+                'Maps Sample App',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.green[700],
+              leading: BackButton(
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )),
+          body: const Stack(
+            children: [
+              Expanded(child: GoogleMapsAPI()),
+              CanePosition(
+                latitude: -6.1753924,
+                longitude: 106.8271528,
+              ),
+            ],
           ),
-          backgroundColor: Colors.green[700],
-        ),
-        body: const GoogleMapsAPI(),
-      ),
+          bottomNavigationBar: BottomAppBar(
+            child: Text("Intellicane User-1", style: GoogleFonts.poppins()),
+          )),
     );
+  }
+}
+
+class CanePosition extends StatelessWidget {
+  const CanePosition({
+    key,
+    required this.latitude,
+    required this.longitude,
+  }) : super(key: key);
+
+  final double latitude;
+  final double longitude;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
