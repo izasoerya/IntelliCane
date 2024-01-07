@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/maps_page/page.dart';
 
 void main() => runApp(const MainPageApplication());
 
@@ -7,9 +8,9 @@ class MainPageApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Maps Sample App',
-      home: const MainPage(),
+      home: MainPage(),
     );
   }
 }
@@ -37,7 +38,10 @@ class MainPage extends StatelessWidget {
               title: const Text('Maps'),
               onTap: () {
                 // Handle drawer item tap
-                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MainPageMaps()));
               },
             ),
             ListTile(
