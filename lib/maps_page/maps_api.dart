@@ -26,13 +26,6 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
         currentLocation.longitude + 0.0001,
       );
     });
-
-    // Animate the camera to the updated location
-    _controller.future.then((controller) {
-      controller.animateCamera(
-        CameraUpdate.newLatLng(currentLocation),
-      );
-    });
   }
 
   @override
