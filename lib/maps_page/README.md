@@ -9,10 +9,12 @@ Since API_KEY is sensitive information, i hide it from version control. In case 
 3. Go to build.gradle inside android folder, then put this:
 
 ```bash
-buildscript {
+buildscript
+{
     ....
     }
-    dependencies {
+    dependencies
+    {
         ....
         classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
     }
@@ -22,7 +24,8 @@ buildscript {
 4. Go to build.grade inside app folder, then put this:
 
 ```bash
-plugins {
+plugins
+{
     ...
     id "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
 }
