@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intellicane/maps_page/page.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:intellicane/message_page/page.dart';
+import 'firebase_options.dart';
 
-void main() => runApp(const MainPageApplication());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  var token = await FirebaseMessaging.instance.getToken();
+  print('FCM Token: $token');
+
+  runApp(const MainPageApplication());
+}
 
 class MainPageApplication extends StatelessWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -49,7 +61,8 @@ class MainPage extends StatelessWidget {
               title: const Text('Message'),
               onTap: () {
                 // Handle drawer item tap
-                Navigator.pop(context); // Close the drawer
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()));
               },
             ),
           ],

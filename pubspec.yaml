@@ -1,12 +1,14 @@
 name: intellicane
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.10
   flutter:
     sdk: flutter
   google_fonts: ^6.1.0
