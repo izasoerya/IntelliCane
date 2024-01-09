@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final FCMHandler _fcmHandler = FCMHandler();
-  var temp = const RemoteMessage();
+  RemoteMessage temp = const RemoteMessage();
   @override
   void initState() {
     super.initState();
@@ -35,13 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('FCM Example'),
       ),
-      body: Center(
+      body: Container(
+        alignment: Alignment.center,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: [
             Text(messageStructure.notificationTitle),
             Text(messageStructure.notificationBody),
             Text(messageStructure.dataTitle),
-            Text(messageStructure.dataBody),
+            Text(messageStructure.dataLatitude),
+            Text(messageStructure.dataLongitude),
           ],
         ),
       ),

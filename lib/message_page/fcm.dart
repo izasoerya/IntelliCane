@@ -28,37 +28,10 @@ class FCMHandler {
 
       // Create a MessageStructure object with the opened app message
       MessageStructure openedAppMessage = MessageStructure(message: message);
-
-      // Pass the openedAppMessage to the appropriate handling method
       handleOpenedAppMessage(openedAppMessage);
     });
-
-    FirebaseMessaging.onBackgroundMessage((RemoteMessage message) async {
-      print("FCM Message in background: ${message.data}");
-
-      // Create a MessageStructure object with the background message
-      MessageStructure backgroundMessage = MessageStructure(message: message);
-
-      // Pass the backgroundMessage to the appropriate handling method
-      await handleBackgroundMessage(backgroundMessage);
-    });
-
-    // Get the initial message (if any)
-    RemoteMessage? initialMessage =
-        await FirebaseMessaging.instance.getInitialMessage();
-    if (initialMessage != null) {
-      print("FCM Initial Message: ${initialMessage.data}");
-
-      // Create a MessageStructure object with the initial message
-      MessageStructure initialMessageStructure =
-          MessageStructure(message: initialMessage);
-
-      // Pass the initialMessageStructure to the appropriate handling method
-      handleInitialMessage(initialMessageStructure);
-    }
   }
 
-  // Define the handling methods based on your requirements
   void handleReceivedMessage(MessageStructure message) {
     // Handle the received message here
   }
