@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intellicane/maps_page/page.dart';
-// import 'package:intellicane/message_page/page.dart';
+import 'package:intellicane/message_page/page.dart';
 
 class MainPageApplication extends StatelessWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -45,15 +45,17 @@ class MainPage extends StatelessWidget {
                             )));
               },
             ),
-            // ListTile(
-            //   leading: const Icon(Icons.message),
-            //   title: const Text('Message'),
-            //   onTap: () {
-            //     // Handle drawer item tap
-            //     Navigator.push(context,
-            //         MaterialPageRoute(builder: (context) => MyHomePage()));
-            //   },
-            // ),
+            ListTile(
+              leading: const Icon(Icons.message),
+              title: const Text('Message'),
+              onTap: () {
+                // Handle drawer item tap
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyHomePage()));
+              },
+            ),
           ],
         ),
       ),

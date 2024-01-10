@@ -3,17 +3,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import '../message_page/message_format.dart';
 
 class FCMHandler {
-  Future<void> initFCM(
-      void Function(
-        double latitude,
-        double langitude,
-      ) mapsAPI) async {
+  Future<void> initFCM(void Function(RemoteMessage) mapsAPI) async {
     // Request permission for FCM
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      mapsAPI(
-        double.parse(message.data['latitude']),
-        double.parse(message.data['longitude']),
-      );
+      mapsAPI(message);
       // Invoke the external callback with the incoming message
       print("FCM Message Data: ${message.data}");
       print("FCM Message Notification: ${message.notification}");
