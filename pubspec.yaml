@@ -11,8 +11,10 @@ dependencies:
   firebase_messaging: ^14.7.10
   flutter:
     sdk: flutter
+  flutter_timer_countdown: ^1.0.7
   google_fonts: ^6.1.0
   google_maps_flutter: ^2.5.1
+  slidable_button: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:

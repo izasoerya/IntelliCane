@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
+import 'package:intellicane/login_page/page.dart';
 
 class MainPageApplication extends StatelessWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -54,6 +55,15 @@ class MainPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const MyHomePage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.login),
+              title: const Text('Login'),
+              onTap: () {
+                // Handle drawer item tap
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MainView()));
               },
             ),
           ],
