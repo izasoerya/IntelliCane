@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../config/fcm.dart';
 
 class GoogleMapsAPI extends StatefulWidget {
-  const GoogleMapsAPI({super.key});
+  const GoogleMapsAPI({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<GoogleMapsAPI> createState() => _GoogleMapsAPIState();
@@ -13,18 +16,24 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
   final Completer<GoogleMapController> _controller = Completer();
 
   LatLng currentLocation = const LatLng(-7.797068, 110.370529);
-
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
-  void updateLocation() {
-    // Simulate a slight change in location (e.g., moving a few meters)
+  final FCMHandler _fcmHandler = FCMHandler();
+  @override
+  void initState() {
+    super.initState();
+    _initFCM();
+  }
+
+  Future<void> _initFCM() async {
+    await _fcmHandler.initFCM(updateLocation);
+  }
+
+  void updateLocation(double latitude, double longitude) {
     setState(() {
-      currentLocation = LatLng(
-        currentLocation.latitude + 0.0001,
-        currentLocation.longitude + 0.0001,
-      );
+      currentLocation = LatLng(latitude, longitude);
     });
   }
 
@@ -50,9 +59,10 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
           ),
         ),
         ElevatedButton(
-          onPressed: updateLocation,
-          child: const Text('Update Location'),
-        ),
+            onPressed: () {
+              print("Button Pressed!");
+            },
+            child: const Text("Button")),
       ],
     );
   }
