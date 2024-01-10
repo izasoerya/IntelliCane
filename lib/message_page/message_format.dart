@@ -9,14 +9,18 @@ class MessageStructure {
   late String notificationTitle;
   late String notificationBody;
   late String dataTitle;
-  late String dataLatitude;
-  late String dataLongitude;
+  late double dataLatitude;
+  late double dataLongitude;
 
   void initializeFields() {
     notificationTitle = message.notification?.title ?? "";
     notificationBody = message.notification?.body ?? "";
     dataTitle = message.data['id'] ?? "";
-    dataLatitude = message.data['latitude'] ?? "";
-    dataLongitude = message.data['longitude'] ?? "";
+    dataLatitude = message.data["latitude"] != null
+        ? double.parse(message.data["latitude"] as String)
+        : 0.0;
+    dataLongitude = message.data["longitude"] != null
+        ? double.parse(message.data["longitude"] as String)
+        : 0.0;
   }
 }

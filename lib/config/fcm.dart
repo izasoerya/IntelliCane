@@ -1,13 +1,13 @@
+// import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'message_format.dart';
+import '../message_page/message_format.dart';
 
 class FCMHandler {
-  Future<void> initFCM(
-      void Function(RemoteMessage message) incomingMessage) async {
+  Future<void> initFCM(void Function(RemoteMessage) mapsAPI) async {
+    // Request permission for FCM
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      mapsAPI(message);
       // Invoke the external callback with the incoming message
-      incomingMessage(message);
-
       print("FCM Message Data: ${message.data}");
       print("FCM Message Notification: ${message.notification}");
       String notificationTitle = message.notification?.title ?? "No Title";
@@ -48,3 +48,38 @@ class FCMHandler {
     // Handle the initial message here
   }
 }
+
+// class WidgetFCM extends StatefulWidget {
+//   const WidgetFCM({
+//     // required this.updateLocation,
+//     super.key,
+//   });
+
+//   // final void Function() updateLocation;
+
+//   @override
+//   State<WidgetFCM> createState() => _WidgetFCMState();
+// }
+
+// class _WidgetFCMState extends State<WidgetFCM> {
+//   final FCMHandler _fcmHandler = FCMHandler();
+//   RemoteMessage temp = const RemoteMessage();
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _initFCM();
+//   }
+
+//   Future<void> _initFCM() async {
+//     await _fcmHandler.initFCM();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MainPageMaps(
+//       latitude: 0,
+//       longitude: 0,
+//     );
+//   }
+// }

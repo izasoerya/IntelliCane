@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'message_format.dart';
-import 'fcm.dart';
+import '../config/fcm.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -44,8 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(messageStructure.notificationTitle),
             Text(messageStructure.notificationBody),
             Text(messageStructure.dataTitle),
-            Text(messageStructure.dataLatitude),
-            Text(messageStructure.dataLongitude),
           ],
         ),
       ),

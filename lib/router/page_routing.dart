@@ -8,7 +8,6 @@ class MainPageApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Maps Sample App',
       home: MainPage(),
     );
   }
@@ -40,7 +39,10 @@ class MainPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MainPageMaps()));
+                        builder: (context) => const MainPageMaps(
+                              latitude: 0,
+                              longitude: 0,
+                            )));
               },
             ),
             ListTile(
@@ -48,8 +50,10 @@ class MainPage extends StatelessWidget {
               title: const Text('Message'),
               onTap: () {
                 // Handle drawer item tap
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyHomePage()));
               },
             ),
           ],
