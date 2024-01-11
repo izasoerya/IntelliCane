@@ -3,14 +3,19 @@ import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
 
-class MainPageApplication extends StatelessWidget {
+class MainPageApplication extends StatefulWidget {
   const MainPageApplication({Key? key}) : super(key: key);
 
   @override
+  State<MainPageApplication> createState() => _MainPageApplicationState();
+}
+
+class _MainPageApplicationState extends State<MainPageApplication> {
+  late Widget currentWidget;
+
+  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MainPage(),
-    );
+    return const MainPage();
   }
 }
 

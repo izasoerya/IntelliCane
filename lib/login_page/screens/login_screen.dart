@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
+import '../widget/save_data.dart';
+import '../widget/user_data.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.controller});
   final PageController controller;
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-String result = 'Patient'; // Initialize the class-level result variable
+String userRole = 'Patient'; // Initialize the class-level result variable
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
-  void fetchUserRole(String newResult) {
+  void fetchUserRole(String selectRole) {
     setState(() {
-      print("should be changed! $newResult");
-      result = newResult; // Update the class-level result variable
+      print("should be changed! $selectRole");
+      userRole = selectRole; // Update the class-level result variable
     });
   }
 
@@ -60,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                   decoration: InputDecoration(
-                    labelText: result == 'Patient' ? 'Cane UID' : 'Username',
+                    labelText: userRole == 'Patient' ? 'Cane UID' : 'Username',
                     labelStyle: const TextStyle(
                       color: Color(0xFF755DC1),
                       fontSize: 15,
@@ -128,7 +131,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        DataUser inputUser = DataUser(
+                          id: _emailController.text,
+                          password: _passController.text,
+                          role: userRole,
+                        );
+                        if (await matchUserData(inputUser)) {
+                          print("Login Success!");
+                          widget.controller.animateToPage(5,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease);
+                        } else {
+                          print("Login Failed!");
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),

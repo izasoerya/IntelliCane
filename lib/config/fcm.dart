@@ -48,38 +48,3 @@ class FCMHandler {
     // Handle the initial message here
   }
 }
-
-// class WidgetFCM extends StatefulWidget {
-//   const WidgetFCM({
-//     // required this.updateLocation,
-//     super.key,
-//   });
-
-//   // final void Function() updateLocation;
-
-//   @override
-//   State<WidgetFCM> createState() => _WidgetFCMState();
-// }
-
-// class _WidgetFCMState extends State<WidgetFCM> {
-//   final FCMHandler _fcmHandler = FCMHandler();
-//   RemoteMessage temp = const RemoteMessage();
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _initFCM();
-//   }
-
-//   Future<void> _initFCM() async {
-//     await _fcmHandler.initFCM();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MainPageMaps(
-//       latitude: 0,
-//       longitude: 0,
-//     );
-//   }
-// }

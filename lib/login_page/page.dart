@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/sign_up_screen.dart';
+import 'package:intellicane/router/page_routing.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -14,22 +15,28 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: 2,
-        controller: controller,
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            return LoginScreen(
-              controller: controller,
-            );
-          } else {
-            return SingUpScreen(
-              controller: controller,
-            );
-          }
-        },
+    return MaterialApp(
+      home: Scaffold(
+        body: PageView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 3,
+          controller: controller,
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return LoginScreen(
+                controller: controller,
+              );
+            } else if (index == 1) {
+              return SingUpScreen(
+                controller: controller,
+              );
+            } else if (index == 2) {
+              return const MainPageApplication();
+            } else {
+              return LoginScreen(controller: controller);
+            }
+          },
+        ),
       ),
     );
   }

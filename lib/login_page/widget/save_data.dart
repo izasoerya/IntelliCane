@@ -38,6 +38,22 @@ Future<List<DataUser>> getUserData() async {
   });
 }
 
+Future<bool> matchUserData(DataUser inputUser) async {
+  // Get the user data from the database
+  List<DataUser> users = await getUserData();
+
+  // Check if the user ID and password match
+  for (DataUser user in users) {
+    if (user.id == inputUser.id &&
+        user.password == inputUser.password &&
+        user.role == inputUser.role) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 void showUserData() async {
   List<DataUser> users = await getUserData();
 
