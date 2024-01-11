@@ -13,7 +13,6 @@ String userRole = "Patient";
 class _SingUpScreenState extends State<SingUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-  final TextEditingController _repassController = TextEditingController();
 
   void determineUserRole(String role) {
     setState(() {
