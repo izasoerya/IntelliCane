@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
+import '../widget/save_data.dart';
+import '../widget/user_data.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.controller});
   final PageController controller;
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
+String userRole = 'Patient'; // Initialize the class-level result variable
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
-  var result = 'Patient';
-  void determineUserRole(String result) {
+  void fetchUserRole(String selectRole) {
     setState(() {
-      print("should be changed! $result");
-      result = result;
+      print("should be changed! $selectRole");
+      userRole = selectRole; // Update the class-level result variable
     });
   }
 
@@ -45,7 +49,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 25),
-                RoleSlider(determineUserRole: determineUserRole),
+                ToggleButtonsSample(
+                  hookRole: fetchUserRole,
+                ),
                 const SizedBox(height: 25),
                 TextField(
                   controller: _emailController,
@@ -56,15 +62,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: const InputDecoration(
-                    labelText: 'Cane Id / Username',
-                    labelStyle: TextStyle(
+                  decoration: InputDecoration(
+                    labelText: userRole == 'Patient' ? 'Cane UID' : 'Username',
+                    labelStyle: const TextStyle(
                       color: Color(0xFF755DC1),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
@@ -125,7 +131,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        DataUser inputUser = DataUser(
+                          id: _emailController.text,
+                          password: _passController.text,
+                          role: userRole,
+                        );
+                        if (await matchUserData(inputUser)) {
+                          print("Login Success!");
+                          widget.controller.animateToPage(5,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease);
+                        } else {
+                          print("Login Failed!");
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),

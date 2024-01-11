@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'router/page_routing.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'login_page/page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,6 @@ void main() async {
     provisional: false,
     sound: true,
   );
-
   print('User granted permission: ${settings.authorizationStatus}');
-  runApp(const MainPageApplication());
+  runApp(const MainView());
 }

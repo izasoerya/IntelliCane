@@ -51,7 +51,7 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
             zoomControlsEnabled: false,
             initialCameraPosition: CameraPosition(
               target: currentLocation,
-              zoom: 17.0,
+              zoom: 13.0,
             ),
             markers: {
               Marker(
@@ -62,11 +62,6 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
             },
           ),
         ),
-        ElevatedButton(
-            onPressed: () {
-              print("Button Pressed!");
-            },
-            child: const Text("Button")),
       ],
     );
   }

@@ -1,47 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:slidable_button/slidable_button.dart';
 
-class RoleSlider extends StatefulWidget {
-  const RoleSlider({super.key, required this.determineUserRole});
-  final void Function(String result) determineUserRole;
+const List<Widget> role = <Widget>[
+  Text('Patient'),
+  Text('Guardian'),
+];
+
+class ToggleButtonsSample extends StatefulWidget {
+  const ToggleButtonsSample({super.key, required this.hookRole});
+  final void Function(String role) hookRole;
 
   @override
-  State<RoleSlider> createState() => _RoleSliderState();
+  State<ToggleButtonsSample> createState() => _ToggleButtonsSampleState();
 }
 
-class _RoleSliderState extends State<RoleSlider> {
-  String result = "Patient";
+class _ToggleButtonsSampleState extends State<ToggleButtonsSample> {
+  final List<bool> _role = <bool>[true, false];
+  bool vertical = false;
   @override
   Widget build(BuildContext context) {
-    return HorizontalSlidableButton(
-      width: MediaQuery.of(context).size.width,
-      buttonWidth: 150,
-      color: Theme.of(context).primaryColor.withOpacity(0.5),
-      buttonColor: Theme.of(context).primaryColor,
-      dismissible: false,
-      label: const Center(child: Text('|||')),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Patient',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold)),
-            Text('Guardian',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold)),
-          ],
+    return Column(
+      children: [
+        ToggleButtons(
+          direction: vertical ? Axis.vertical : Axis.horizontal,
+          onPressed: (int index) {
+            setState(() {
+              // The button that is tapped is set to true, and the others to false.
+              for (int i = 0; i < _role.length; i++) {
+                _role[i] = i == index;
+              }
+              _role[0] == true
+                  ? widget.hookRole("Patient")
+                  : widget.hookRole("Guardian");
+            });
+          },
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          selectedBorderColor: Colors.purple[700],
+          selectedColor: Colors.white,
+          fillColor: Colors.deepPurple[200],
+          color: Colors.purpleAccent[400],
+          constraints: const BoxConstraints(
+            minHeight: 40.0,
+            minWidth: 80.0,
+          ),
+          isSelected: _role,
+          children: role,
         ),
-      ),
-      onChanged: (position) {
-        widget.determineUserRole(result);
-        if (position == SlidableButtonPosition.end) {
-          result = 'Patient';
-        } else {
-          result = 'Guardian';
-        }
-      },
+      ],
     );
   }
 }
