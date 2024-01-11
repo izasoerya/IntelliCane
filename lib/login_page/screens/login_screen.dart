@@ -8,15 +8,16 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
+String result = 'Patient'; // Initialize the class-level result variable
+
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
-  var result = 'Patient';
-  void determineUserRole(String result) {
+  void fetchUserRole(String newResult) {
     setState(() {
-      print("should be changed! $result");
-      result = result;
+      print("should be changed! $newResult");
+      result = newResult; // Update the class-level result variable
     });
   }
 
@@ -45,7 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 25),
-                RoleSlider(determineUserRole: determineUserRole),
+                ToggleButtonsSample(
+                  hookRole: fetchUserRole,
+                ),
                 const SizedBox(height: 25),
                 TextField(
                   controller: _emailController,
@@ -56,15 +59,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: const InputDecoration(
-                    labelText: 'Cane Id / Username',
-                    labelStyle: TextStyle(
+                  decoration: InputDecoration(
+                    labelText: result == 'Patient' ? 'Cane UID' : 'Username',
+                    labelStyle: const TextStyle(
                       color: Color(0xFF755DC1),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
