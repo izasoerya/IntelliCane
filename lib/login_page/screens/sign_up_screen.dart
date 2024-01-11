@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
+import '../widget/save_data.dart';
+import '../widget/user_data.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key, required this.controller});
@@ -149,7 +151,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        widget.controller.animateToPage(2,
+                        DataUser newUser = DataUser(
+                          id: _emailController.text,
+                          password: _passController.text,
+                          role: userRole,
+                        );
+                        print(newUser);
+                        saveUserData(newUser);
+                        widget.controller.animateToPage(1,
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.ease);
                       },
@@ -202,6 +211,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         ),
                       ),
                     ),
+                    const ElevatedButton(
+                        onPressed: showUserData, child: Text("Show data")),
                   ],
                 ),
               ],
