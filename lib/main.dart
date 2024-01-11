@@ -8,8 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseMessaging messaging = FirebaseMessaging.instance;
-  var token = await messaging.getToken();
-  print(token);
   NotificationSettings settings = await messaging.requestPermission(
     alert: true,
     announcement: false,

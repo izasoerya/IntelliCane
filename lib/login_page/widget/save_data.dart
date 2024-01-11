@@ -38,6 +38,7 @@ Future<List<DataUser>> getUserData() async {
   });
 }
 
+DataUser selectedAccount = DataUser(id: "", password: "", role: "");
 Future<bool> matchUserData(DataUser inputUser) async {
   // Get the user data from the database
   List<DataUser> users = await getUserData();
@@ -47,6 +48,8 @@ Future<bool> matchUserData(DataUser inputUser) async {
     if (user.id == inputUser.id &&
         user.password == inputUser.password &&
         user.role == inputUser.role) {
+      selectedAccount = DataUser(
+          id: inputUser.id, password: inputUser.password, role: inputUser.role);
       return true;
     }
   }

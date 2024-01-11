@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
+import 'package:intellicane/login_page/widget/save_data.dart';
 
 class MainPageApplication extends StatefulWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -29,10 +30,10 @@ class MainPage extends StatelessWidget {
         elevation: 4.0,
         child: Column(
           children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text('Achmad Taufiq'),
-              accountEmail: Text('Guardian'),
-              currentAccountPicture: CircleAvatar(
+            UserAccountsDrawerHeader(
+              accountName: Text(selectedAccount.id),
+              accountEmail: Text(selectedAccount.role),
+              currentAccountPicture: const CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Icon(Icons.person),
               ),
