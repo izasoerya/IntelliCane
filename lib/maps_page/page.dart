@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'maps_api.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'bottom_screen.dart';
 
 class MainPageMaps extends StatelessWidget {
   const MainPageMaps({
@@ -20,11 +20,11 @@ class MainPageMaps extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             'Maps Sample App',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
           ),
-          backgroundColor: Colors.green[700],
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           leading: BackButton(
-            color: Colors.white,
+            color: const Color.fromARGB(255, 0, 0, 0),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -34,15 +34,9 @@ class MainPageMaps extends StatelessWidget {
           children: [
             GoogleMapsAPI(),
             Positioned.fill(
-              child: CanePosition(
-                latitude: -6.1753924,
-                longitude: 106.8271528,
-              ),
+              child: DraggableBottomScreen(),
             ),
           ],
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Text("Intellicane User-1", style: GoogleFonts.poppins()),
         ),
       ),
     );
@@ -64,35 +58,3 @@ class CanePosition extends StatelessWidget {
     return Container();
   }
 }
-
-// class InitFCM extends StatefulWidget {
-//   const InitFCM({
-//     required this.updateLocation,
-//     super.key,
-//   });
-
-//   final void Function() updateLocation;
-
-//   @override
-//   State<InitFCM> createState() => _WidgetFCMState();
-// }
-
-// class _WidgetFCMState extends State<InitFCM> {
-//   final FCMHandler _fcmHandler = FCMHandler();
-//   RemoteMessage temp = const RemoteMessage();
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _initFCM();
-//   }
-
-//   Future<void> _initFCM() async {
-//     await _fcmHandler.initFCM();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MainPageApplication();
-//   }
-// }

@@ -58,6 +58,8 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
                 markerId: const MarkerId("currentLocation"),
                 position:
                     LatLng(currentLocation.latitude, currentLocation.longitude),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueBlue),
               )
             },
           ),
