@@ -10,6 +10,19 @@ class MainHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Container(
+          height: 30,
+          width: 400,
+          decoration: BoxDecoration(color: Colors.blue, boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 7,
+              offset: const Offset(0, 1), // changes position of shadow
+            ),
+          ]),
+        ),
+        const Padding(padding: EdgeInsets.only(top: 10)),
         const ProfileBar(),
         Container(
           alignment: Alignment.topLeft,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/login_page/widget/save_data.dart';
 
 class ProfileBar extends StatelessWidget {
   const ProfileBar({super.key});
@@ -7,11 +8,11 @@ class ProfileBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(20.0),
-      padding: EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 20),
       height: 60,
       width: 400,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 223, 223, 223),
+        color: const Color.fromARGB(255, 223, 223, 223),
         borderRadius: BorderRadius.circular(10), // specify the radius
       ),
       child: Row(children: [
@@ -20,26 +21,26 @@ class ProfileBar extends StatelessWidget {
           height: 40,
           width: 40,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 244, 244, 244),
+            color: const Color.fromARGB(255, 244, 244, 244),
             borderRadius: BorderRadius.circular(40), // specify the radius
           ),
           child: const Icon(Icons.person),
         ),
         const Padding(padding: EdgeInsets.only(left: 5)),
-        const Column(
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'John Doe',
-              style: TextStyle(
+              selectedAccount.id,
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              'Admin',
-              style: TextStyle(
+              selectedAccount.role,
+              style: const TextStyle(
                 fontSize: 15,
               ),
             ),

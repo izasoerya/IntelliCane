@@ -76,14 +76,23 @@ class MainPage extends StatelessWidget {
           ],
         ),
       ),
-      appBar: AppBar(
-        title: const Text(
-          '',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: const Color.fromARGB(255, 33, 150, 243),
-      ),
       body: const MainHomePage(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Beranda',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.navigation),
+            label: 'Navigasi',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Pesan',
+          ),
+        ],
+      ),
     );
   }
 }
