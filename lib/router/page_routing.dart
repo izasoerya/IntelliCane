@@ -77,22 +77,55 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: const MainHomePage(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Beranda',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.navigation),
-            label: 'Navigasi',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Pesan',
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomNavBar(),
+    );
+  }
+}
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: _currentIndex,
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+          if (_currentIndex == 1) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MainPageMaps(
+                          latitude: 0,
+                          longitude: 0,
+                        )));
+          } else if (_currentIndex == 2) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MyHomePage()));
+          }
+        });
+      },
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Beranda',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.navigation),
+          label: 'Navigasi',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.message),
+          label: 'Pesan',
+        ),
+      ],
     );
   }
 }
