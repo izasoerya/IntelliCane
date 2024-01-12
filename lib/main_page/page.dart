@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/main_page/connected_cane.dart';
 import 'package:intellicane/main_page/learn_more.dart';
 import 'package:intellicane/main_page/profile_bar.dart';
 import 'package:intellicane/main_page/add_cane_id.dart';
@@ -32,6 +33,10 @@ class MainHomePage extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: const LearnMoreBar(),
         ),
+        Container(
+          alignment: Alignment.topLeft,
+          child: const ConnectedCane(),
+        )
       ]),
     );
   }

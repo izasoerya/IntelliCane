@@ -27,3 +27,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/intellicane-logo.png
+    - assets/vector-tunanetra.png

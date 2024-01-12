@@ -211,8 +211,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         ),
                       ),
                     ),
-                    const ElevatedButton(
-                        onPressed: showUserData, child: Text("Show data")),
+                    // const ElevatedButton(
+                    //     onPressed: showUserData, child: Text("Show data")),
                   ],
                 ),
               ],
