@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/main_page/page.dart';
 import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
@@ -77,35 +78,12 @@ class MainPage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: const Text(
-          'IntelliCane',
+          '',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color.fromARGB(255, 0, 75, 160),
+        backgroundColor: const Color.fromARGB(255, 33, 150, 243),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 255, 255, 255)
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),
-          const Text(
-            "Welcome to IntelliCane",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 24,
-            ),
-          ),
-        ],
-      ),
+      body: const MainHomePage(),
     );
   }
 }
