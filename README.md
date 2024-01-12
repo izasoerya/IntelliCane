@@ -31,23 +31,23 @@ This repository contain mobile app program for IntelliCane using Flutter Framewo
 
 ## Home-Page
 
-![Home Page](https://drive.google.com/file/d/1BpaCTmv_kKGaoey293nh7dfApJt89Lc0/view?usp=drive_link)
+![Home Page](https://drive.google.com/uc?export=view&id=1BpaCTmv_kKGaoey293nh7dfApJt89Lc0)
 
-![Profile](https://drive.google.com/file/d/1c-b2oUel6hJynKhnPMqlU5jtcvkDxXnN/view?usp=drive_link)
+![Profile](https://drive.google.com/uc?export=view&id=1c-b2oUel6hJynKhnPMqlU5jtcvkDxXnN)
 
 ## User Profile and Maps
 
-![User Profile](https://drive.google.com/file/d/1fswEL3WU_fGLTZBZOt0wLpeg412oZpC3/view?usp=drive_link)
+![User Profile](https://drive.google.com/uc?export=view&id=1fswEL3WU_fGLTZBZOt0wLpeg412oZpC3)
 
-![Maps](https://drive.google.com/file/d/1d81GFBTfC-TgofOD8Y8IppMlyl8rOSEW/view?usp=drive_link)
+![Maps](https://drive.google.com/uc?export=view&id=1d81GFBTfC-TgofOD8Y8IppMlyl8rOSEW)
 
 ## Broadcast Messages
 
-![personal](https://drive.google.com/file/d/1_cpUJ-O5zscYgCuWqM7aHTiD6ky2WjYV/view?usp=drive_link)
+![personal](https://drive.google.com/uc?export=view&id=1_cpUJ-O5zscYgCuWqM7aHTiD6ky2WjYV)
 
-![grups](https://drive.google.com/file/d/15BZ6cBeWYTp2pNkR5so22uY-Ya7Qvsiv/view?usp=drive_link)
+![grups](https://drive.google.com/uc?export=view&id=15BZ6cBeWYTp2pNkR5so22uY-Ya7Qvsiv)
 
-![all](https://drive.google.com/file/d/1nbCHRFCyS_XeyO1DdSSCDV99ZsJ-3k1W/view?usp=drive_link)
+![all](https://drive.google.com/uc?export=view&id=1nbCHRFCyS_XeyO1DdSSCDV99ZsJ-3k1W)
 
 ## Badges
 
