@@ -4,10 +4,10 @@ This repository contain mobile app program for IntelliCane using Flutter Framewo
 
 ## Authors
 
-- [Ihza Surya Pratama](https://www.github.com/izasoerya)
-- [Raden Fakhru Rossy]()
-- [Achmad Taufiq]()
-- [Danisya Ayu Sabrina](https://www.instagram.com/danisya.as?igsh=MWM1cDIzMm40MzdzbQ==)
+- [Ihza Surya Pratama - Hacker](www.linkedin.com/in/ihza-surya-pratama-a642001a0)
+- [Raden Fakhru Rossy - Hacker](https://www.instagram.com/kk.io_)
+- [Achmad Taufiq - Hipster](https://www.linkedin.com/in/ahmad-taufiq-b1384a21b/)
+- [Danisya Ayu Sabrina - Hustler](https://www.instagram.com/danisya.as?igsh=MWM1cDIzMm40MzdzbQ==)
 
 ## Feature List
 
@@ -16,6 +16,38 @@ This repository contain mobile app program for IntelliCane using Flutter Framewo
 - Text-to-Speech, Intellicane is geared with Text-to-Speech (TTS) by Google to make nurse/guardian could communicate with IntelliCane user using android app.
 - Speech-to-Text, Intellicane also geared with Speech-to-Text (STT) by Google to enable IntelliCane user communicate with nurse/guardian.
 - Google AI, IntelliCane is integrated with Google AI to utilize android feature using IntelliCane.
+
+- Navigation and Exploration Using Google Map, This feature will utilize the Google Maps API to provide navigation and exploration instructions to the user of the smart cane. The user can input their destination and Google Maps will provide step-by-step voice instructions to help them reach their destination. This feature can also provide information about the surrounding environment, such as businesses or other points of interest.
+
+- Chat Integrated with TTS API, This feature allows the user to communicate with their companion via text chat. The text from the chat is then converted into speech using the Text-to-Speech (TTS) API, allowing the user to “hear” the messages being sent.
+
+- Voice and Video Calls, This feature allows the user to make voice or video calls with their companion. This can be very useful in emergency situations or if the user needs immediate assistance. For video calls, the image can be interpreted and explained to the user through audio.
+
+## Authentication
+
+![Sign-in](https://drive.google.com/uc?export=view&id=1LdCDJKoZhRpOw5Jy43mXJhQHmi2Ad_O6)
+
+![Log-in](https://drive.google.com/file/d/1vRI-LIJJkr0B4GF-LZd4mrIPWAbWZ2WU/view?usp=drive_link)
+
+## Home-Page
+
+![Home Page](https://drive.google.com/file/d/1BpaCTmv_kKGaoey293nh7dfApJt89Lc0/view?usp=drive_link)
+
+![Profile](https://drive.google.com/file/d/1c-b2oUel6hJynKhnPMqlU5jtcvkDxXnN/view?usp=drive_link)
+
+## User Profile and Maps
+
+![User Profile](https://drive.google.com/file/d/1fswEL3WU_fGLTZBZOt0wLpeg412oZpC3/view?usp=drive_link)
+
+![Maps](https://drive.google.com/file/d/1d81GFBTfC-TgofOD8Y8IppMlyl8rOSEW/view?usp=drive_link)
+
+## Broadcast Messages
+
+![personal](https://drive.google.com/file/d/1_cpUJ-O5zscYgCuWqM7aHTiD6ky2WjYV/view?usp=drive_link)
+
+![grups](https://drive.google.com/file/d/15BZ6cBeWYTp2pNkR5so22uY-Ya7Qvsiv/view?usp=drive_link)
+
+![all](https://drive.google.com/file/d/1nbCHRFCyS_XeyO1DdSSCDV99ZsJ-3k1W/view?usp=drive_link)
 
 ## Badges
 
