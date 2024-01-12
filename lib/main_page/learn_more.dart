@@ -42,19 +42,19 @@ class LearnMoreBar extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(top: 10)),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text(
-                  'Pelajari',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
+                ),
+                child: const Text(
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                  'Pelajari',
                 ),
               ),
             ],
