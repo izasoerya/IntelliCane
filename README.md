@@ -27,7 +27,7 @@ This repository contain mobile app program for IntelliCane using Flutter Framewo
 
 ![Sign-in](https://drive.google.com/uc?export=view&id=1LdCDJKoZhRpOw5Jy43mXJhQHmi2Ad_O6)
 
-![Log-in](https://drive.google.com/file/d/1vRI-LIJJkr0B4GF-LZd4mrIPWAbWZ2WU/view?usp=drive_link)
+![Log-in](https://drive.google.com/uc?export=view&id=1vRI-LIJJkr0B4GF-LZd4mrIPWAbWZ2WU)
 
 ## Home-Page
 
