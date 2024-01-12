@@ -76,14 +76,56 @@ class MainPage extends StatelessWidget {
           ],
         ),
       ),
-      appBar: AppBar(
-        title: const Text(
-          '',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: const Color.fromARGB(255, 33, 150, 243),
-      ),
       body: const MainHomePage(),
+      bottomNavigationBar: const BottomNavBar(),
+    );
+  }
+}
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: _currentIndex,
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+          if (_currentIndex == 1) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MainPageMaps(
+                          latitude: 0,
+                          longitude: 0,
+                        )));
+          } else if (_currentIndex == 2) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MyHomePage()));
+          }
+        });
+      },
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Beranda',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.navigation),
+          label: 'Navigasi',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.message),
+          label: 'Pesan',
+        ),
+      ],
     );
   }
 }
