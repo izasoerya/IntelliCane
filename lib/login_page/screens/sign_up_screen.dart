@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
 import '../widget/save_data.dart';
 import '../widget/user_data.dart';
+import '../widget/response_popup.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key, required this.controller});
@@ -158,9 +159,10 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         );
                         print(newUser);
                         saveUserData(newUser);
-                        widget.controller.animateToPage(1,
+                        widget.controller.animateToPage(0,
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.ease);
+                        responseAuth(context, 'Success Create Account!', true);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
@@ -211,8 +213,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         ),
                       ),
                     ),
-                    // const ElevatedButton(
-                    //     onPressed: showUserData, child: Text("Show data")),
+                    const ElevatedButton(
+                        onPressed: showUserData, child: Text("Show data")),
                   ],
                 ),
               ],
