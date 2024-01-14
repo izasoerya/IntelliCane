@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/database/monitoring_db.dart';
 
 class RegisterCaneID extends StatefulWidget {
   const RegisterCaneID({super.key});
@@ -8,7 +9,13 @@ class RegisterCaneID extends StatefulWidget {
 }
 
 class _RegisterCaneIDState extends State<RegisterCaneID> {
-  void submitCaneID() {}
+  void submitCaneID() {
+    generateNewUser(
+      caneID,
+      countPatient.toString(),
+    );
+  }
+
   String caneID = '';
 
   @override

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 int countPatient = 0;
 
-void generateNewUser(String id, String password, String role) {
-  ProfilePatient newUser =
-      ProfilePatient(id: id, password: password, role: role);
+void generateNewUser(
+  String patientId,
+  String patientName,
+) {
+  ProfilePatient newUser = ProfilePatient(id: patientId, name: patientName);
   dataPatientRegistered.add(newUser);
 }
 
@@ -12,11 +14,10 @@ List<ProfilePatient> dataPatientRegistered = [];
 
 class ProfilePatient {
   final String id;
-  final String password;
-  final String role;
+  final String name;
   final Color color;
 
-  ProfilePatient({required this.id, required this.password, required this.role})
+  ProfilePatient({required this.id, required this.name})
       : color = _generateColor();
 
   static Color _generateColor() {
