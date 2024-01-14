@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 int countPatient = 0;
 
@@ -7,10 +8,13 @@ void generateNewUser(
   String patientName,
 ) {
   ProfilePatient newUser = ProfilePatient(id: patientId, name: patientName);
-  dataPatientRegistered.add(newUser);
+  newUser.submitToFirebaseDatabase(newUser);
 }
 
 List<ProfilePatient> dataPatientRegistered = [];
+List<ProfilePatient> getPatientRegistered() {
+  return dataPatientRegistered;
+}
 
 class ProfilePatient {
   final String id;
@@ -59,5 +63,28 @@ class ProfilePatient {
       countPatient = 0;
       return Colors.blue;
     }
+  }
+
+  void submitToFirebaseDatabase(ProfilePatient patient) async {
+    var db = FirebaseFirestore.instance;
+    final user = <String, dynamic>{
+      "name": patient.name,
+      "id": patient.id,
+      "color": patient.color.toString(),
+    };
+    db.collection("patient").add(user).then((DocumentReference doc) =>
+        print('DocumentSnapshot added with ID: ${doc.id}'));
+
+    await retrieveData(patient.name);
+  }
+
+  Future<void> retrieveData(String userId) async {
+    var db = FirebaseFirestore.instance;
+
+    await db.collection("patient").get().then((event) {
+      for (var doc in event.docs) {
+        print("${doc.id} => ${doc.data()}");
+      }
+    });
   }
 }

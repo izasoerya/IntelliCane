@@ -11,6 +11,8 @@ class _ConnectedCaneState extends State<ConnectedCane> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 190,
+      width: 370,
       margin: const EdgeInsets.all(20.0),
       child: Column(
         children: [
