@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class RegisterCaneID extends StatelessWidget {
+class RegisterCaneID extends StatefulWidget {
   const RegisterCaneID({super.key});
+
+  @override
+  State<RegisterCaneID> createState() => _RegisterCaneIDState();
+}
+
+class _RegisterCaneIDState extends State<RegisterCaneID> {
   void submitCaneID() {}
+  String caneID = '';
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +38,17 @@ class RegisterCaneID extends StatelessWidget {
           const Padding(padding: EdgeInsets.only(top: 10)),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: TextField(
+                  onChanged: (value) => setState(() => caneID = value),
                   textAlign: TextAlign.start,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF393939),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Masukan ID Pengguna IntelliCane',
                     labelStyle: TextStyle(
                       color: Color.fromARGB(255, 170, 170, 170),
@@ -68,8 +76,7 @@ class RegisterCaneID extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(left: 10)),
               ElevatedButton(
                 onPressed: () {
-                  // Handle submit button press
-                  print('Submit button pressed!');
+                  submitCaneID();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,

@@ -3,7 +3,7 @@ import 'package:intellicane/main_page/page.dart';
 import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
-import 'package:intellicane/login_page/widget/save_data.dart';
+import 'package:intellicane/database/auth_db.dart';
 
 class MainPageApplication extends StatefulWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -98,7 +98,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
       onTap: (index) {
         setState(() {
           _currentIndex = index;
-          if (_currentIndex == 1) {
+          if (_currentIndex == 0) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MainPage()));
+          } else if (_currentIndex == 1) {
             Navigator.push(
                 context,
                 MaterialPageRoute(

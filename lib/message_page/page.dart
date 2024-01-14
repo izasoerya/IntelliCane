@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'message_format.dart';
+import '../models/message_format.dart';
 import '../config/fcm.dart';
 
 class MyHomePage extends StatefulWidget {

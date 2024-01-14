@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
-import '../widget/save_data.dart';
-import '../widget/user_data.dart';
+import '../../database/auth_db.dart';
+import '../../models/user_data.dart';
 import '../widget/response_popup.dart';
 
 class SingUpScreen extends StatefulWidget {
