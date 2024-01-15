@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/login_page/widget/response_popup.dart';
 import '../widget/role_slider.dart';
-import '../widget/save_data.dart';
-import '../widget/user_data.dart';
+import '../../database/auth_db.dart';
+import '../../models/user_data.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.controller});
@@ -142,8 +143,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           widget.controller.animateToPage(5,
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease);
+                          responseAuth(context, 'Success Login Account!', true);
                         } else {
                           print("Login Failed!");
+                          responseAuth(context, 'Failed Login Account!', false);
                         }
                       },
                       style: ElevatedButton.styleFrom(

@@ -1,10 +1,23 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'user_data.dart';
+import '../models/user_data.dart';
 
-Future<Database> openDatabaseConnection() async {
+Future<Database> openDatabaseConnectionAuth() async {
   var databasesPath = await getDatabasesPath();
-  String path = join(databasesPath, 'intellicane.db');
+  String path = join(databasesPath, 'intellicane_account.db');
+  return await openDatabase(
+    path,
+    version: 1,
+    onCreate: (db, version) {
+      db.execute(
+          'CREATE TABLE IF NOT EXISTS user (id TEXT, password TEXT, role TEXT)');
+    },
+  );
+}
+
+Future<Database> initDBPatientMonitoring() async {
+  var databasesPath = await getDatabasesPath();
+  String path = join(databasesPath, 'intellicane_Monitoring.db');
   return await openDatabase(
     path,
     version: 1,
@@ -16,14 +29,14 @@ Future<Database> openDatabaseConnection() async {
 }
 
 Future<void> saveUserData(DataUser user) async {
-  final Database database = await openDatabaseConnection();
+  final Database database = await openDatabaseConnectionAuth();
 
   // Insert the user into the user table
   await database.insert('user', user.toMap());
 }
 
 Future<List<DataUser>> getUserData() async {
-  final Database database = await openDatabaseConnection();
+  final Database database = await openDatabaseConnectionAuth();
 
   // Query all rows from the user table
   final List<Map<String, dynamic>> maps = await database.query('user');
@@ -72,7 +85,5 @@ void insertExample() async {
       DataUser(id: "sadads", password: 'qweqew', role: 'Guardian');
 
   await saveUserData(newUser);
-
-  // Show updated user data after insertion
   showUserData();
 }

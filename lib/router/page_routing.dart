@@ -3,7 +3,7 @@ import 'package:intellicane/main_page/page.dart';
 import 'package:intellicane/maps_page/page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
-import 'package:intellicane/login_page/widget/save_data.dart';
+import 'package:intellicane/database/auth_db.dart';
 
 class MainPageApplication extends StatefulWidget {
   const MainPageApplication({Key? key}) : super(key: key);
@@ -58,10 +58,8 @@ class MainPage extends StatelessWidget {
               title: const Text('Message'),
               onTap: () {
                 // Handle drawer item tap
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MyHomePage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MessagePage()));
               },
             ),
             ListTile(
@@ -98,7 +96,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
       onTap: (index) {
         setState(() {
           _currentIndex = index;
-          if (_currentIndex == 1) {
+          if (_currentIndex == 0) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MainPage()));
+          } else if (_currentIndex == 1) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -108,7 +109,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         )));
           } else if (_currentIndex == 2) {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()));
+                MaterialPageRoute(builder: (context) => MessagePage()));
           }
         });
       },

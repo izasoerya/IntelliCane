@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/database/monitoring_db.dart';
 
-class RegisterCaneID extends StatelessWidget {
-  const RegisterCaneID({super.key});
-  void submitCaneID() {}
+class RegisterCaneID extends StatefulWidget {
+  const RegisterCaneID({super.key, required this.countPatient});
+  final void Function() countPatient;
+
+  @override
+  State<RegisterCaneID> createState() => _RegisterCaneIDState();
+}
+
+class _RegisterCaneIDState extends State<RegisterCaneID> {
+  void submitCaneID() {
+    generateNewUser(
+      caneID,
+      countPatient.toString(),
+    );
+  }
+
+  String caneID = '';
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 100,
       width: 370,
-      padding: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         children: [
           const Row(
@@ -28,19 +43,20 @@ class RegisterCaneID extends StatelessWidget {
               ),
             ],
           ),
-          const Padding(padding: EdgeInsets.only(top: 10)),
+          const Padding(padding: EdgeInsets.only(top: 5)),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: TextField(
+                  onChanged: (value) => setState(() => caneID = value),
                   textAlign: TextAlign.start,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF393939),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Masukan ID Pengguna IntelliCane',
                     labelStyle: TextStyle(
                       color: Color.fromARGB(255, 170, 170, 170),
@@ -68,8 +84,9 @@ class RegisterCaneID extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(left: 10)),
               ElevatedButton(
                 onPressed: () {
-                  // Handle submit button press
-                  print('Submit button pressed!');
+                  submitCaneID();
+                  widget.countPatient();
+                  setState(() {});
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intellicane/login_page/widget/save_data.dart';
+import 'package:intellicane/database/auth_db.dart';
 
 class ProfileBar extends StatelessWidget {
   const ProfileBar({super.key});
