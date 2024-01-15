@@ -58,10 +58,8 @@ class MainPage extends StatelessWidget {
               title: const Text('Message'),
               onTap: () {
                 // Handle drawer item tap
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MyHomePage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MessagePage()));
               },
             ),
             ListTile(
@@ -111,7 +109,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         )));
           } else if (_currentIndex == 2) {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()));
+                MaterialPageRoute(builder: (context) => MessagePage()));
           }
         });
       },
