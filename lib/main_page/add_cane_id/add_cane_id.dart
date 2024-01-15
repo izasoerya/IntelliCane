@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intellicane/database/monitoring_db.dart';
 
 class RegisterCaneID extends StatefulWidget {
-  const RegisterCaneID({super.key});
+  const RegisterCaneID({super.key, required this.countPatient});
+  final void Function() countPatient;
 
   @override
   State<RegisterCaneID> createState() => _RegisterCaneIDState();
@@ -23,7 +24,7 @@ class _RegisterCaneIDState extends State<RegisterCaneID> {
     return Container(
       height: 100,
       width: 370,
-      padding: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         children: [
           const Row(
@@ -42,7 +43,7 @@ class _RegisterCaneIDState extends State<RegisterCaneID> {
               ),
             ],
           ),
-          const Padding(padding: EdgeInsets.only(top: 10)),
+          const Padding(padding: EdgeInsets.only(top: 5)),
           Row(
             children: [
               Expanded(
@@ -84,6 +85,8 @@ class _RegisterCaneIDState extends State<RegisterCaneID> {
               ElevatedButton(
                 onPressed: () {
                   submitCaneID();
+                  widget.countPatient();
+                  setState(() {});
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
