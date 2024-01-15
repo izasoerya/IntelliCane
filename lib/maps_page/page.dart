@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/maps_page/generate_icon.dart';
 import 'maps_api.dart';
 import 'bottom_screen.dart';
 
@@ -30,13 +31,25 @@ class MainPageMaps extends StatelessWidget {
             },
           ),
         ),
-        body: const Stack(
-          children: [
-            GoogleMapsAPI(),
-            Positioned.fill(
-              child: DraggableBottomScreen(),
-            ),
-          ],
+        body: FutureBuilder(
+          future: fetchIds(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator(); // show loading spinner while waiting
+            } else if (snapshot.hasError) {
+              return Text(
+                  'Error: ${snapshot.error}'); // show error message if something went wrong
+            } else {
+              return const Stack(
+                children: [
+                  GoogleMapsAPI(),
+                  Positioned.fill(
+                    child: DraggableBottomScreen(),
+                  ),
+                ],
+              );
+            }
+          },
         ),
       ),
     );

@@ -15,20 +15,32 @@ class PatientBar extends StatelessWidget {
         itemBuilder: (context, index) {
           String name = data[index]['name'];
           String id = data[index]['id'];
-          // String colorString = data[index]['color'];
-          // String valueString = colorString.split("#")[1]; // remove the #
-          // int value = int.parse(valueString, radix: 16);
-          // Color color = new Color(value + 0xFF000000); // add the alpha value
+          String colorString = data[index]['color'];
+          final colorValueString = colorString
+              .split('(0x')[1]
+              .split(')')[0]; // Extract color value from string
+          final colorValue = int.parse(colorValueString,
+              radix: 16); // Convert color value to integer
+          final color = Color(colorValue); // Create color object
 
           return Container(
-            margin: EdgeInsets.only(top: 5),
-            color: Colors.grey,
+            alignment: Alignment.topLeft,
+            height: 50,
+            margin: const EdgeInsets.only(top: 7),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 228, 228, 228),
+              borderRadius:
+                  BorderRadius.circular(10), // Set the border radius here
+            ),
             child: Row(
               children: [
-                const Icon(Icons.person, color: Colors.amberAccent),
+                const Padding(padding: EdgeInsets.only(right: 10)),
+                Icon(Icons.person, color: color),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Padding(padding: const EdgeInsets.only(top: 5)),
                     Text(
                       name,
                       style: const TextStyle(fontWeight: FontWeight.bold),

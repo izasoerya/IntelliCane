@@ -44,13 +44,13 @@ class _DraggableBottomScreenState extends State<DraggableBottomScreen> {
                       size: 30,
                     ),
                   ),
-                  SliverList.list(children: const [
-                    Row(
-                      children: [
-                        GeneratorIcon(),
+                  SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        const GeneratorIcon(),
                       ],
                     ),
-                  ])
+                  )
                 ],
               ),
             ),
