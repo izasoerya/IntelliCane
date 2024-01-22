@@ -13,6 +13,7 @@ class _DraggableBottomScreenState extends State<DraggableBottomScreen> {
   final _controller = DraggableScrollableController();
   @override
   Widget build(BuildContext context) {
+    fetchIds();
     return DraggableScrollableSheet(
         key: _sheet,
         initialChildSize: 0.2,
