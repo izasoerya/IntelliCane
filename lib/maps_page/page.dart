@@ -3,16 +3,16 @@ import 'package:intellicane/maps_page/generate_icon.dart';
 import 'maps_api.dart';
 import 'bottom_screen.dart';
 
-class MainPageMaps extends StatelessWidget {
+class MainPageMaps extends StatefulWidget {
   const MainPageMaps({
     key,
-    required this.latitude,
-    required this.longitude,
   }) : super(key: key);
 
-  final double latitude;
-  final double longitude;
+  @override
+  State<MainPageMaps> createState() => _MainPageMapsState();
+}
 
+class _MainPageMapsState extends State<MainPageMaps> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

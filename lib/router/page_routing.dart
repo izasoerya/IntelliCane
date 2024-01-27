@@ -47,10 +47,7 @@ class MainPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MainPageMaps(
-                              latitude: 0,
-                              longitude: 0,
-                            )));
+                        builder: (context) => const MainPageMaps()));
               },
             ),
             ListTile(
@@ -100,13 +97,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const MainPage()));
           } else if (_currentIndex == 1) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MainPageMaps(
-                          latitude: 0,
-                          longitude: 0,
-                        )));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MainPageMaps()));
           } else if (_currentIndex == 2) {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MessagePage()));
