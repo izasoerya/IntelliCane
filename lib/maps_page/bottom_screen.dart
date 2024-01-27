@@ -48,7 +48,7 @@ class _DraggableBottomScreenState extends State<DraggableBottomScreen> {
                   SliverList(
                     delegate: SliverChildListDelegate(
                       [
-                        const GeneratorIcon(),
+                        GeneratorIcon(),
                       ],
                     ),
                   )

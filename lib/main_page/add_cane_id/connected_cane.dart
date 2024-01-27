@@ -18,6 +18,8 @@ class _ConnectedCaneState extends State<ConnectedCane> {
         documents['error'] == 'No documents found') {
       return false; // Return false when there are no documents
     }
+
+    patientDataAll = await retrieveDataAll();
     return true;
   }
 
@@ -106,8 +108,6 @@ class _AlreadyRegisteredState extends State<AlreadyRegistered> {
   }
 
   Future<void> fetchIds() async {
-    // Fetch the IDs from your database and assign them to `ids`
-    // This is just a placeholder, replace it with your actual database fetching code
     ids.addAll(await retrieveDataAll());
     RegisterCaneID(
       countPatient: fetchIds,

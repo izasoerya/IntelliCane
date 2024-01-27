@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intellicane/database/monitoring_db.dart';
 
-List<Map<String, dynamic>> data = []; // This will hold your IDs
 Future<List> fetchIds() async {
   return (await retrieveDataAll());
 }
@@ -14,8 +13,17 @@ class GeneratorIcon extends StatefulWidget {
 }
 
 class _GeneratorIconState extends State<GeneratorIcon> {
+  List<Map<String, dynamic>> data = [];
+  @override
+  void initState() {
+    data = patientDataAll; // This will hold your IDs
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(
+        "${data}, =========================================================================");
     return data.isEmpty
         ? const Text(
             "No data, please add a patient first",
@@ -53,11 +61,11 @@ class _GeneratorIconState extends State<GeneratorIcon> {
                     children: [
                       const Padding(padding: EdgeInsets.only(right: 10)),
                       Icon(Icons.map, color: color),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(padding: const EdgeInsets.only(top: 5)),
+                          const Padding(padding: EdgeInsets.only(top: 5)),
                           Text(
                             name,
                             style: const TextStyle(fontWeight: FontWeight.bold),

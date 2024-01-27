@@ -3,8 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:intellicane/database/monitoring_db.dart';
 import '../config/fcm.dart';
-import 'generate_icon.dart';
 
 class GoogleMapsAPI extends StatefulWidget {
   const GoogleMapsAPI({
@@ -87,12 +87,12 @@ class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
                 zoom: 13.0,
               ),
               markers: <Marker>{
-                if (data.isNotEmpty) ...[
+                if (patientDataAll.isNotEmpty) ...[
                   // spread operator to insert multiple items
-                  for (int i = 0; i < data.length; i++)
+                  for (int i = 0; i < patientDataAll.length; i++)
                     Marker(
-                      markerId: MarkerId(data[i]['id']),
-                      position: parseLatLng(data[i]['location']),
+                      markerId: MarkerId(patientDataAll[i]['id']),
+                      position: parseLatLng(patientDataAll[i]['location']),
                       icon: BitmapDescriptor.defaultMarkerWithHue(
                           BitmapDescriptor.hueAzure),
                     ),

@@ -10,11 +10,12 @@ class RegisterCaneID extends StatefulWidget {
 }
 
 class _RegisterCaneIDState extends State<RegisterCaneID> {
-  void submitCaneID() {
+  void submitCaneID() async {
     generateNewUser(
       caneID,
       countPatient.toString(),
     );
+    patientDataAll = await retrieveDataAll();
   }
 
   String caneID = '';
