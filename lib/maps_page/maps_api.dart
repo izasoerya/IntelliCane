@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intellicane/database/monitoring_db.dart';
@@ -14,6 +15,8 @@ class GoogleMapsAPI extends StatefulWidget {
 
 class _GoogleMapsAPIState extends State<GoogleMapsAPI> {
   final Completer<GoogleMapController> _controller = Completer();
+  final CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection('patient');
 
   LatLng currentLocation = const LatLng(-7.797068, 110.370529);
   void _onMapCreated(GoogleMapController controller) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intellicane/maps_page/generate_icon.dart';
+import 'generate_icon.dart';
 import 'maps_api.dart';
 import 'bottom_screen.dart';
 
