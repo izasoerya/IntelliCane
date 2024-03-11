@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/sign_up_screen.dart';
-import 'package:intellicane/router/page_routing.dart';
+import 'package:intellicane/page_routing.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
