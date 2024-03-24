@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intellicane/login_page/widget/response_popup.dart';
-import '../widget/role_slider.dart';
-import '../../database/auth_db.dart';
-import '../../models/user_data_login.dart';
+import 'package:intellicane/login_page/widget/role_slider.dart';
+import 'package:intellicane/database/auth_db.dart';
+import 'package:intellicane/models/user_data_login.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({
     super.key,
     required this.controller,
@@ -12,12 +13,15 @@ class LoginScreen extends StatefulWidget {
   final PageController controller;
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
 String userRole = 'Patient'; // Initialize the class-level result variable
+var finishLoginProvider = StateProvider<bool>((ref) {
+  return false;
+});
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
@@ -147,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease);
                           responseAuth(context, 'Success Login Account!', true);
+                          ref.read(finishLoginProvider.notifier).state = true;
                         } else {
                           print("Login Failed!");
                           responseAuth(context, 'Failed Login Account!', false);
