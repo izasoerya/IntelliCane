@@ -16,12 +16,12 @@ class LoginScreen extends ConsumerStatefulWidget {
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-String userRole = 'Patient'; // Initialize the class-level result variable
 var finishLoginProvider = StateProvider<bool>((ref) {
   return false;
 });
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
+  String userRole = 'Patient'; // Initialize the class-level result variable
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 

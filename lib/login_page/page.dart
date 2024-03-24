@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'screens/login_screen.dart';
 import 'screens/sign_up_screen.dart';
 import 'package:intellicane/page_routing.dart';

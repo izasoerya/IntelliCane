@@ -11,11 +11,11 @@ dependencies:
     sdk: flutter
   flutter_timer_countdown: ^1.0.7
   google_fonts: ^6.1.0
-  google_maps_flutter: ^2.5.1
   path: ^1.8.3
   sqflite: ^2.3.0
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
+  flutter_map: ^6.1.0
 
 dev_dependencies:
   flutter_test:

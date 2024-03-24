@@ -18,6 +18,7 @@ class _WidgetStateController extends ConsumerState<WidgetStateController> {
   @override
   void initState() {
     super.initState();
+    // Start with the login page
     screen = widget.currentWidget.fetchStateWidget(ApplicationState.loginPage);
   }
 
@@ -25,7 +26,7 @@ class _WidgetStateController extends ConsumerState<WidgetStateController> {
   Widget build(BuildContext context) {
     final successAuthCondition = ref.watch(finishLoginProvider);
     screen = successAuthCondition
-        ? widget.currentWidget.fetchStateWidget(ApplicationState.homePage)
+        ? widget.currentWidget.fetchStateWidget(ApplicationState.mapsPage)
         : screen;
     return screen;
   }

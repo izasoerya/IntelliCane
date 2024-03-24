@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intellicane/main_page/page.dart';
-import 'package:intellicane/maps_page/page.dart';
+import 'package:intellicane/maps_page/screen/maps_page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
 
@@ -17,7 +18,7 @@ class WidgetBinder {
 
   Widget get loginPage => const LoginPage();
   Widget get homePage => const MainHomePage();
-  Widget get mapsPage => const MainPageMaps(latitude: 0, longitude: 0);
+  Widget get mapsPage => const MapsPage();
   Widget get messagePage => MessagePage();
 
   Widget fetchStateWidget(ApplicationState currentState) {
@@ -40,9 +41,9 @@ class WidgetBinder {
       case 1:
         return homePage;
       case 2:
-        return mapsPage;
-      case 3:
         return messagePage;
+      case 3:
+        return mapsPage;
       default:
         return loginPage;
     }
