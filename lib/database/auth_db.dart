@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../models/user_data.dart';
+import '../models/user_data_login.dart';
 
 Future<Database> openDatabaseConnectionAuth() async {
   var databasesPath = await getDatabasesPath();
@@ -28,22 +28,22 @@ Future<Database> initDBPatientMonitoring() async {
   );
 }
 
-Future<void> saveUserData(DataUser user) async {
+Future<void> saveUserData(DataLoginUser user) async {
   final Database database = await openDatabaseConnectionAuth();
 
   // Insert the user into the user table
   await database.insert('user', user.toMap());
 }
 
-Future<List<DataUser>> getUserData() async {
+Future<List<DataLoginUser>> getUserData() async {
   final Database database = await openDatabaseConnectionAuth();
 
   // Query all rows from the user table
   final List<Map<String, dynamic>> maps = await database.query('user');
 
-  // Convert the List<Map<String, dynamic>> to a List<DataUser>
+  // Convert the List<Map<String, dynamic>> to a List<DataLoginUser>
   return List.generate(maps.length, (index) {
-    return DataUser(
+    return DataLoginUser(
       id: maps[index]['id'],
       password: maps[index]['password'],
       role: maps[index]['role'],
@@ -51,17 +51,17 @@ Future<List<DataUser>> getUserData() async {
   });
 }
 
-DataUser selectedAccount = DataUser(id: "", password: "", role: "");
-Future<bool> matchUserData(DataUser inputUser) async {
+DataLoginUser selectedAccount = DataLoginUser(id: "", password: "", role: "");
+Future<bool> matchUserData(DataLoginUser inputUser) async {
   // Get the user data from the database
-  List<DataUser> users = await getUserData();
+  List<DataLoginUser> users = await getUserData();
 
   // Check if the user ID and password match
-  for (DataUser user in users) {
+  for (DataLoginUser user in users) {
     if (user.id == inputUser.id &&
         user.password == inputUser.password &&
         user.role == inputUser.role) {
-      selectedAccount = DataUser(
+      selectedAccount = DataLoginUser(
           id: inputUser.id, password: inputUser.password, role: inputUser.role);
       return true;
     }
@@ -71,18 +71,18 @@ Future<bool> matchUserData(DataUser inputUser) async {
 }
 
 void showUserData() async {
-  List<DataUser> users = await getUserData();
+  List<DataLoginUser> users = await getUserData();
 
   // Display user data
-  for (DataUser user in users) {
+  for (DataLoginUser user in users) {
     print(
         'User ID: ${user.id}, Password: ${user.password}, Role: ${user.role}');
   }
 }
 
 void insertExample() async {
-  DataUser newUser =
-      DataUser(id: "sadads", password: 'qweqew', role: 'Guardian');
+  DataLoginUser newUser =
+      DataLoginUser(id: "sadads", password: 'qweqew', role: 'Guardian');
 
   await saveUserData(newUser);
   showUserData();

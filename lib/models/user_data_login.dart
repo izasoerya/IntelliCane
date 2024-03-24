@@ -1,11 +1,11 @@
-class DataUser {
+class DataLoginUser {
   String id;
   String password;
   String role;
 
-  DataUser({required this.id, required this.password, required this.role});
+  DataLoginUser({required this.id, required this.password, required this.role});
 
-  // Convert DataUser to a map
+  // Convert DataLoginUser to a map
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -14,9 +14,9 @@ class DataUser {
     };
   }
 
-  // Create a DataUser instance from a map
-  factory DataUser.fromMap(Map<String, dynamic> map) {
-    return DataUser(
+  // Create a DataLoginUser instance from a map
+  factory DataLoginUser.fromMap(Map<String, dynamic> map) {
+    return DataLoginUser(
       id: map['id'],
       password: map['password'],
       role: map['role'],

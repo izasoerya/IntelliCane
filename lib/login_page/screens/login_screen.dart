@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intellicane/login_page/widget/response_popup.dart';
 import '../widget/role_slider.dart';
 import '../../database/auth_db.dart';
-import '../../models/user_data.dart';
+import '../../models/user_data_login.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key, required this.controller});
+  const LoginScreen({
+    super.key,
+    required this.controller,
+  });
   final PageController controller;
 
   @override
@@ -133,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () async {
-                        DataUser inputUser = DataUser(
+                        DataLoginUser inputUser = DataLoginUser(
                           id: _emailController.text,
                           password: _passController.text,
                           role: userRole,

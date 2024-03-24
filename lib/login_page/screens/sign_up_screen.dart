@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widget/role_slider.dart';
 import '../../database/auth_db.dart';
-import '../../models/user_data.dart';
+import '../../models/user_data_login.dart';
 import '../widget/response_popup.dart';
 
 class SingUpScreen extends StatefulWidget {
@@ -152,7 +152,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        DataUser newUser = DataUser(
+                        DataLoginUser newUser = DataLoginUser(
                           id: _emailController.text,
                           password: _passController.text,
                           role: userRole,

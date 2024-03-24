@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'screens/login_screen.dart';
 import 'screens/sign_up_screen.dart';
 import 'package:intellicane/page_routing.dart';
 
-class MainView extends StatefulWidget {
-  const MainView({super.key});
-
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
   @override
-  State<MainView> createState() => _MainViewState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _MainViewState extends State<MainView> {
+class _LoginPageState extends State<LoginPage> {
   PageController controller = PageController(initialPage: 0);
 
   @override
@@ -31,9 +31,11 @@ class _MainViewState extends State<MainView> {
                 controller: controller,
               );
             } else if (index == 2) {
-              return const MainPageApplication();
+              return const WidgetStateController();
             } else {
-              return LoginScreen(controller: controller);
+              return LoginScreen(
+                controller: controller,
+              );
             }
           },
         ),
