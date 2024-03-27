@@ -35,15 +35,8 @@ class MainHomePage extends ConsumerWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (int index) {
-          if (index == 0) {
-            ref.read(selectedButton.notifier).state = 0;
-          } else if (index == 1) {
-            ref.read(selectedButton.notifier).state = 1;
-          } else if (index == 2) {
-            ref.read(selectedButton.notifier).state = 2;
-          }
+          ref.read(selectedButton.notifier).state = index;
         },
-        selectedItemColor: Colors.blue,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),

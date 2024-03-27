@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intellicane/login_page/screens/login_screen.dart';
-import 'package:intellicane/main_page/screen/page.dart';
+import 'package:intellicane/main_page/screen/home_page.dart';
 import 'models/application_state.dart';
-
-bool isAuth = false;
 
 class WidgetStateController extends ConsumerStatefulWidget {
   const WidgetStateController({Key? key}) : super(key: key);
@@ -33,23 +31,11 @@ class _WidgetStateController extends ConsumerState<WidgetStateController> {
       screen = widget.currentWidget.fetchStateWidget(ApplicationState.homePage);
       isRegistered = true;
     }
+    int selectedBottomBar = ref.watch(selectedButton);
 
-    // Success Auth
     if (isRegistered) {
-      int pageSelected = ref.watch(selectedButton);
-      if (pageSelected == 1) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => widget.currentWidget
-                    .fetchStateWidgetWithIndex(pageSelected)));
-      } else if (pageSelected == 2) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => widget.currentWidget
-                    .fetchStateWidgetWithIndex(pageSelected)));
-      }
+      screen =
+          widget.currentWidget.fetchStateWidgetWithIndex(selectedBottomBar);
     }
     return screen;
   }
