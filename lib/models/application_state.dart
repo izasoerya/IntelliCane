@@ -13,6 +13,8 @@ enum ApplicationState {
   messagePage,
 }
 
+bool isRegistered = false;
+
 class WidgetBinder {
   const WidgetBinder();
 
