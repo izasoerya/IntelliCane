@@ -6,13 +6,11 @@ class MapsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Maps Page'),
-        ),
-        body: const MapsAPI(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Maps Page'),
       ),
+      body: const MapsAPI(),
     );
   }
 }

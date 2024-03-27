@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intellicane/main_page/page.dart';
+import 'package:intellicane/main_page/screen/page.dart';
 import 'package:intellicane/maps_page/screen/maps_page.dart';
 import 'package:intellicane/message_page/page.dart';
 import 'package:intellicane/login_page/page.dart';
@@ -37,15 +37,13 @@ class WidgetBinder {
   Widget fetchStateWidgetWithIndex(int index) {
     switch (index) {
       case 0:
-        return loginPage;
-      case 1:
         return homePage;
+      case 1:
+        return mapsPage;
       case 2:
         return messagePage;
-      case 3:
-        return mapsPage;
       default:
-        return loginPage;
+        return homePage;
     }
   }
 }

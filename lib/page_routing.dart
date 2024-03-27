@@ -27,14 +27,21 @@ class _WidgetStateController extends ConsumerState<WidgetStateController> {
 
   @override
   Widget build(BuildContext context) {
+    // Auth Process
     final successAuthCondition = ref.watch(finishLoginProvider);
     screen = successAuthCondition
         ? widget.currentWidget.fetchStateWidget(ApplicationState.homePage)
         : screen;
 
-    // final currentActiveScreen = ref.watch(selectedButton);
-    // screen =
-    //     widget.currentWidget.fetchStateWidgetWithIndex(currentActiveScreen);
+    // Success Auth
+    // if (screen == widget.currentWidget.homePage) {
+    //   int pageSelected = ref.watch(selectedButton);
+    //   Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //           builder: (context) => widget.currentWidget
+    //               .fetchStateWidgetWithIndex(pageSelected)));
+    // }
     return screen;
   }
 }
