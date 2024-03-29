@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intellicane/login_page/widget/response_popup.dart';
 import 'package:intellicane/login_page/widget/role_slider.dart';
 import 'package:intellicane/database/auth_db.dart';
 import 'package:intellicane/models/user_data_login.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intellicane/login_page/global_properties.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({
@@ -27,7 +28,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   void fetchUserRole(String selectRole) {
     setState(() {
-      print("should be changed! $selectRole");
+      print("Role selected: $selectRole");
       userRole = selectRole; // Update the class-level result variable
     });
   }
@@ -50,7 +51,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 const Text(
                   'Log In',
                   style: TextStyle(
-                    color: Color(0xFF755DC1),
+                    color: primaryColor,
                     fontSize: 27,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
@@ -65,7 +66,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   controller: _emailController,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Color(0xFF393939),
+                    color: primaryColor,
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
@@ -73,7 +74,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   decoration: InputDecoration(
                     labelText: userRole == 'Patient' ? 'Cane UID' : 'Username',
                     labelStyle: const TextStyle(
-                      color: Color(0xFF755DC1),
+                      color: primaryColor,
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -82,14 +83,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
-                        color: Color(0xFF837E93),
+                        color: primaryColor,
                       ),
                     ),
                     focusedBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
-                        color: Color(0xFF9F7BFF),
+                        color: primaryColor,
                       ),
                     ),
                   ),
@@ -101,7 +102,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   controller: _passController,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Color(0xFF393939),
+                    color: primaryColor,
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
@@ -109,7 +110,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     labelStyle: TextStyle(
-                      color: Color(0xFF755DC1),
+                      color: primaryColor,
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -118,14 +119,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
-                        color: Color(0xFF837E93),
+                        color: primaryColor,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
-                        color: Color(0xFF9F7BFF),
+                        color: primaryColor,
                       ),
                     ),
                   ),
@@ -158,7 +159,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF9F7BFF),
+                        backgroundColor: primaryColor,
                       ),
                       child: const Text(
                         'Sign In',
@@ -198,7 +199,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: const Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: Color(0xFF755DC1),
+                          color: primaryColor,
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
@@ -213,7 +214,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 const Text(
                   'Forget Password?',
                   style: TextStyle(
-                    color: Color(0xFF755DC1),
+                    color: primaryColor,
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,

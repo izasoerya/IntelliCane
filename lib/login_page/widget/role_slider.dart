@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intellicane/login_page/global_properties.dart';
 
 const List<Widget> role = <Widget>[
   Text('Patient'),
@@ -34,10 +35,10 @@ class _ToggleButtonsSampleState extends State<ToggleButtonsSample> {
             });
           },
           borderRadius: const BorderRadius.all(Radius.circular(8)),
-          selectedBorderColor: Colors.purple[700],
+          selectedBorderColor: primaryColor,
           selectedColor: Colors.white,
-          fillColor: Colors.deepPurple[200],
-          color: Colors.purpleAccent[400],
+          fillColor: primaryColor,
+          color: primaryColor,
           constraints: const BoxConstraints(
             minHeight: 40.0,
             minWidth: 80.0,

@@ -31,8 +31,9 @@ class _WidgetStateController extends ConsumerState<WidgetStateController> {
       screen = widget.currentWidget.fetchStateWidget(ApplicationState.homePage);
       isRegistered = true;
     }
-    int selectedBottomBar = ref.watch(selectedButton);
 
+    // Bottom bar navigation process
+    int selectedBottomBar = ref.watch(selectedButton);
     if (isRegistered) {
       screen =
           widget.currentWidget.fetchStateWidgetWithIndex(selectedBottomBar);
